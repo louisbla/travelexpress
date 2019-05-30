@@ -48,6 +48,12 @@
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
                 </li>
+                <li>
+                    <a asp-area="" asp-controller="" asp-action="Index">Proposer un trajet</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="" asp-action="Index">Rechercher un trajet</a>
+                </li>
                 @if (User.IsInRole("Directeur") || User.IsInRole("SuperUser"))
                 {
                     <li class="dropdown">

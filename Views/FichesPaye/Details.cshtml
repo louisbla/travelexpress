@@ -1,0 +1,48 @@
+@model Garderie.Models.FichePaye
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FichePaye</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaireBrut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalaireBrut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbHeuresPrevu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbHeuresPrevu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbHeuresReel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbHeuresReel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DossierEmploye)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DossierEmploye.DossierId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FichePayeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

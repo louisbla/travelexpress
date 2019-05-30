@@ -1,0 +1,59 @@
+@model IEnumerable<Garderie.Models.ObjetFacturable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PrixHt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tva)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixHt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activite.ActiviteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tva.Tvaid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ObjetFacturableId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ObjetFacturableId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ObjetFacturableId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

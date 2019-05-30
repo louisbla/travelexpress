@@ -1,0 +1,59 @@
+@model IEnumerable<Garderie.Models.PersonneAdresse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Domicile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facturation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Domicile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facturation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adresse.AdresseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personne.PersonneId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+@model Garderie.Models.Participation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Participation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Activite.ActiviteId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Groupe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Groupe.GroupeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salle.SalleId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

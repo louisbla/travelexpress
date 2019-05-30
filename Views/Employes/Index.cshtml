@@ -1,0 +1,62 @@
+@model IEnumerable<Garderie.ViewModels.EmployeViewModels.IndexEmployeViewModel>
+
+@{
+    ViewData["Title"] = "Liste des employés";
+}
+
+<h2>Liste des employés</h2>
+
+<p>
+    <a asp-action="Create">Ajouter un nouvel employé</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Poste)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Externe)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poste)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Externe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EmployeId">Editer</a> |
+                    <a asp-action="Details" asp-route-id="@item.EmployeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.EmployeId">Supprimer</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+@model IEnumerable<Garderie.Models.Facture>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEmission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePaiement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontantTtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatutFacture)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEmission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatePaiement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontantTtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatutFacture.Libelle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FactureId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FactureId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FactureId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

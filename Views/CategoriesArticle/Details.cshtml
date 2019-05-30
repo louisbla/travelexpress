@@ -1,0 +1,75 @@
+@model Garderie.ViewModels.CategoriesArticleViewModels.DetailsCategoriesArticleViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CategorieArticle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Articles)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Quantite
+                        </th>
+                        <th>
+                            Photo
+                        </th>
+                        <th>
+                            Description
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Articles)
+                    {
+                        <tr>
+                            <td class="col-md-2">
+                                @Html.DisplayFor(modelItem => item.Nom)
+                            </td>
+                            <td class="col-md-1">
+                                @Html.DisplayFor(modelItem => item.Quantite)
+                            </td>
+                            <td class="col-md-2">
+                                <img src="@Html.DisplayFor(modelItem => item.Photo)" class="img-thumbnail img-responsive center-block" style="width:204px;height:auto;" />
+                            </td>
+                            <td class="col-md-3">
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+
+                            <td class="col-md-2">
+                                <a asp-controller="Articles" asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a> |
+                                <a asp-controller="Articles" asp-action="Details" asp-route-id="@item.ArticleId">Details</a> |
+                                <a asp-controller="Articles" asp-action="Delete" asp-route-id="@item.ArticleId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CategorieId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

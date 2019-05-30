@@ -1,0 +1,78 @@
+@model Garderie.ViewModels.InventairesViewModels.DetailsInventairesViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inventaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StockMax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StockMax)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StockActuel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StockActuel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Articles)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Photo
+                        </th>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Quantite
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Articles)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.Photo)" class="img-thumbnail img-responsive center-block" style="width:204px;height:auto;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantite)
+                            </td>
+                            <td>
+                                <a asp-controller="Articles" asp-action="Edit" asp-route-id="@item.ArticleId">Edit</a> |
+                                <a asp-controller="Articles" asp-action="Details" asp-route-id="@item.ArticleId">Details</a> |
+                                <a asp-controller="Articles" asp-action="Delete" asp-route-id="@item.ArticleId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.InventaireId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

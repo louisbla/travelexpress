@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Garderie.Models.Enfant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.DateNaissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Groupe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventaireEnfant)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personne.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personne.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personne.DateNaissance)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Photo)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Groupe.TypeGroupe.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventaireEnfant.InventaireId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EnfantId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EnfantId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EnfantId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

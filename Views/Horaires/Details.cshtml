@@ -1,0 +1,48 @@
+@model Garderie.Models.Horaire
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Horaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeureDebut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeureDebut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeureFin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeureFin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calendrier)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calendrier.CalendrierId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

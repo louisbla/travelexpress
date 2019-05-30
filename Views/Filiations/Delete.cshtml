@@ -1,0 +1,46 @@
+@model Garderie.Models.Filiation
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Filiation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LienParente)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LienParente)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enfant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enfant.EnfantId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Parent.ParentId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ParentId" />
+        <input type="hidden" asp-for="EnfantId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

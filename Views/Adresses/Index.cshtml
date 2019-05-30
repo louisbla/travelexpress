@@ -1,0 +1,71 @@
+@model IEnumerable<Garderie.Models.Adresse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ligne1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ligne2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ligne3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodePostal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ligne1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ligne2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ligne3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ville)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodePostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AdresseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AdresseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AdresseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

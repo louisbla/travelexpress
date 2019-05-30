@@ -1,0 +1,48 @@
+@model Garderie.Models.LigneFacture
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LigneFacture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalHt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalHt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalTtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalTtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantite)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ObjetFacturable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ObjetFacturable.ObjetFacturableId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

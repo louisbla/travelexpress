@@ -1,0 +1,154 @@
+﻿@model Garderie.ViewModels.EnfantViewModels.DetailsEnfantViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Enfant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sexe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateNaissance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSecu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumSecu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Filiations)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Prenom
+                        </th>
+                        <th>
+                            Date de naissance
+                        </th>
+                        <th>
+                            Telephone
+                        </th>
+                        <th>
+                            Nb enfants inscrits
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Filiations)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Personne.Nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Personne.Prenom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Personne.DateNaissance)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telephone)
+                            </td>
+                            <td>
+                                <a asp-controller="Parents" asp-action="Edit" asp-route-id="@item.ParentId">Edit</a> |
+                                <a asp-controller="Parents" asp-action="Details" asp-route-id="@item.ParentId">Details</a> |
+                                <a asp-controller="Parents" asp-action="Delete" asp-route-id="@item.ParentId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Groupe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Groupe.Descriptif) @Html.DisplayFor(model => model.Groupe.TypeGroupe.Libelle)
+        </dd>
+        @*<dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Prenom
+                        </th>
+                        <th>
+                            Date de naissance
+                        </th>
+                        <th>
+                            Telephone
+                        </th>
+                        <th>
+                            Lien de parente
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DossierContactUrgences)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact.Personne.Nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact.Personne.Prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact.Personne.DateNaissance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact.Telephone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LienParente)
+                        </td>
+                        <td>
+                            <a asp-controller="ContactsUrgence" asp-action="Edit" asp-route-id="@item.Contact.ContactId">Edit</a> |
+                            <a asp-controller="ContactsUrgence" asp-action="Details" asp-route-id="@item.Contact.ContactId">Details</a> |
+                            <a asp-controller="ContactsUrgence" asp-action="Delete" asp-route-id="@item.Contact.ContactId">Delete</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EnfantId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

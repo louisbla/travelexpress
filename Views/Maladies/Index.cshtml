@@ -1,0 +1,47 @@
+@model IEnumerable<Garderie.Models.Maladie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriptif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriptif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaladieId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaladieId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaladieId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

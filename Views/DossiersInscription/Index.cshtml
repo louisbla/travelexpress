@@ -1,0 +1,65 @@
+@model IEnumerable<Garderie.Models.DossierInscription>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateInscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbDemiJourneesInscrit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbDemiJourneesAbsent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedecinTraitant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enfant)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateInscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbDemiJourneesInscrit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbDemiJourneesAbsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedecinTraitant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enfant.EnfantId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DossierId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DossierId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DossierId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

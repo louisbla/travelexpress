@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">Bienvenue !</h1>
+    <img alt="garderie" class="img-responsive" src="~/images/garderie.jpg">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <p class="lead text-center p-5">Veuillez-vous connecter pour accéder aux fonctionnalités de l'application.</p>
+    }
+</div>

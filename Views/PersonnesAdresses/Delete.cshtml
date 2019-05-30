@@ -1,0 +1,52 @@
+@model Garderie.Models.PersonneAdresse
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PersonneAdresse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Domicile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Domicile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Facturation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Facturation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adresse.AdresseId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Personne)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Personne.PersonneId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AdresseId" />
+        <input type="hidden" asp-for="PersonneId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

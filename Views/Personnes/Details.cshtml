@@ -1,0 +1,60 @@
+﻿@model Garderie.Models.Personne
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Personne</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sexe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateNaissance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSecu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumSecu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Discriminator)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Discriminator)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PersonneId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

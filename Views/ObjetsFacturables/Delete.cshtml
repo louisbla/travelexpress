@@ -1,0 +1,51 @@
+@model Garderie.Models.ObjetFacturable
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ObjetFacturable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrixHt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrixHt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Activite.ActiviteId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tva)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tva.Tvaid)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ObjetFacturableId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

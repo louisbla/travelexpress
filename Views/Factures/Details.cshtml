@@ -1,0 +1,84 @@
+@model Garderie.ViewModels.FactureViewModels.DetailsFactureViewModel
+
+@{
+    ViewData["Title"] = "Details Facture";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Facture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEmission)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateEmission)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePaiement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatePaiement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantTtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontantTtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StatutFacture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StatutFacture)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Parents)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Prenom
+                        </th>
+                        <th>
+                            Téléphone
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Parents)
+    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Personne.Nom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Personne.Prenom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telephone)
+                    </td>
+                    <td>
+                        <a asp-controller="Parents" asp-action="Edit" asp-route-id="@item.ParentId">Edit</a> |
+                        <a asp-controller="Parents" asp-action="Details" asp-route-id="@item.ParentId">Details</a> |
+                        <a asp-controller="Parents" asp-action="Delete" asp-route-id="@item.ParentId">Delete</a>
+                    </td>
+                </tr>
+}
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FactureId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

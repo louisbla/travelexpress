@@ -1,0 +1,48 @@
+@model Garderie.Models.ObjetFacturable
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ObjetFacturable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrixHt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrixHt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Activite.ActiviteId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tva)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tva.Tvaid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ObjetFacturableId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

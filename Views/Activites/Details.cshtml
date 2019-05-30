@@ -1,0 +1,48 @@
+@model Garderie.Models.Activite
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Activite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbEnfantsMax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbEnfantsMax)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lieu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lieu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ActiviteId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

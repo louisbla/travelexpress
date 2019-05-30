@@ -1,0 +1,36 @@
+@model Garderie.Models.ParentFacture
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ParentFacture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Facture)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Facture.FactureId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Parent.ParentId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

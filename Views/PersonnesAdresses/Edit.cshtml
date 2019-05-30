@@ -1,0 +1,45 @@
+@model Garderie.Models.PersonneAdresse
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>PersonneAdresse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AdresseId" />
+            <input type="hidden" asp-for="PersonneId" />
+            <div class="form-group">
+                <label asp-for="Domicile" class="control-label"></label>
+                <input asp-for="Domicile" class="form-control" />
+                <span asp-validation-for="Domicile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facturation" class="control-label"></label>
+                <input asp-for="Facturation" class="form-control" />
+                <span asp-validation-for="Facturation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Visible" class="control-label"></label>
+                <input asp-for="Visible" class="form-control" />
+                <span asp-validation-for="Visible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+@model Garderie.Models.PersonneAdresse
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PersonneAdresse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Domicile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Domicile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Facturation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Facturation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adresse.AdresseId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Personne)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Personne.PersonneId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

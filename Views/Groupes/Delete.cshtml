@@ -1,0 +1,45 @@
+@model Garderie.Models.Groupe
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Groupe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriptif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descriptif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Referant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Referant.EmployeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeGroupe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeGroupe.TypeGroupeId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="GroupeId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

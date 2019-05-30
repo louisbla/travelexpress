@@ -1,0 +1,54 @@
+@model Garderie.Models.DossierInscription
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DossierInscription</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInscription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateInscription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbDemiJourneesInscrit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbDemiJourneesInscrit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NbDemiJourneesAbsent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NbDemiJourneesAbsent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MedecinTraitant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MedecinTraitant)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enfant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enfant.EnfantId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DossierId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

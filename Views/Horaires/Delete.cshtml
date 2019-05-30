@@ -1,0 +1,52 @@
+@model Garderie.Models.Horaire
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Horaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeureDebut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeureDebut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HeureFin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeureFin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Calendrier)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calendrier.CalendrierId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="HoraireId" />
+        <input type="hidden" asp-for="CalendrierId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

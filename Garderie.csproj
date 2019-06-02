@@ -17,7 +17,6 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModels\AccountViewModels\" />
     <Folder Include="ViewModels\ManageViewModels\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Manage\" />
     <Folder Include="Data\" />
     <Folder Include="Data\Migrations\" />

@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Garderie.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private readonly GarderieContext _context;
@@ -23,6 +23,11 @@ namespace Garderie.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         public AccountController(
             GarderieContext context,

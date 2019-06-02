@@ -1,0 +1,50 @@
+﻿@model Garderie.Models.Trajet
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>Proposez un Trajet</h2>
+
+<h4>Description du trajet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="conducteur" class="control-label"></label>
+                <input asp-for="conducteur" class="form-control" />
+                <span asp-validation-for="conducteur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ville_depart" class="control-label"></label>
+                <input asp-for="ville_depart" class="form-control" />
+                <span asp-validation-for="ville_depart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ville_arrivee" class="control-label"></label>
+                <input asp-for="ville_arrivee" class="form-control" />
+                <span asp-validation-for="ville_arrivee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date_heure" class="control-label"></label>
+                <input asp-for="date_heure" class="form-control" />
+                <span asp-validation-for="date_heure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nb_passagers" class="control-label"></label>
+                <input asp-for="nb_passagers" class="form-control" />
+                <span asp-validation-for="nb_passagers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

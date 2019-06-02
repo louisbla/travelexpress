@@ -1,7 +1,14 @@
-﻿
+﻿@model Garderie.ViewModels.AccountViewModels.IndexAccountViewModel
+
+
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
+<p> @Html.DisplayFor(model => model.Email) </p>
+<p> @Html.DisplayFor(model => model.Nom) </p>
+<p> @Html.DisplayFor(model => model.Prenom) </p>
+<p> @Html.DisplayFor(model => model.Sexe) </p>
+<p> @Html.DisplayFor(model => model.Telephone) </p>
 

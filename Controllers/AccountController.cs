@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Garderie.Data;
 using Garderie.Models;
 using Garderie.Services;
 using Garderie.ViewModels.AccountViewModels;
+using Garderie.ViewModels.EmployeViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +26,52 @@ namespace Garderie.Controllers
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //return View();
+            ApplicationUser usr = await GetCurrentUserAsync();
+            
+            var garderieContext = _context.Users;
+            var garderieContext2 = _context.Personnes;
+            var users = await garderieContext.ToListAsync();
+            var persons = await garderieContext2.ToListAsync();
+
+            ApplicationUser currentUser = null;
+            Personne personne = null;
+            foreach(ApplicationUser user in users)
+            {
+                if (user.Id == usr.Id)
+                {
+                    currentUser = user;
+                    foreach(Personne pers in persons)
+                    {
+                        if(user.PersonneId == pers.PersonneId)
+                        {
+                            personne = pers;
+                        }
+                    }
+                }
+                
+            }
+
+            IndexAccountViewModel detailsEmployeViewModel = new IndexAccountViewModel
+            {
+                Email = currentUser.Email,
+                Prenom = personne.Prenom,//"prenom", // users[0].Personne.Prenom,
+                Nom = personne.Nom, //"nom", //users[0].Personne.Nom,
+                Sexe = "sexe", //users[0].Personne.Sexe,
+            };
+            
+            /*
+            IndexEmployeViewModel detailsEmployeViewModel = new IndexEmployeViewModel
+            {
+                Nom = person[0].,
+                Prenom = "test",
+                Sexe = "test",
+                Telephone = "test",
+            };*/
+
+            return View(detailsEmployeViewModel);
         }
 
         public AccountController(

@@ -31,17 +31,36 @@
         </div>
     </div>
 
+    
+    <div class="form-group">
+        <label>Numéro de carte de crédit</label>
+        <input class="form-control" aria-describedby="payHelp" maxlength="16" placeholder="Entrez votre numéro de carte">
+        <small id="payHelp" class="form-text text-muted">Numéro à 16 chiffres</small>
+    </div>
+
+    <div class="form-group">
+        <label>Expire fin</label>
+        <input class="form-control" type="month">
+
+    </div>
+
+    <div class="form-group">
+        <label>Code de sécurité</label>
+        <input class="form-control" aria-describedby="codeSecuHelp" maxlength="3" required pattern="[0-9]{3}">
+        <small id="codeSecuHelp" class="form-text text-muted">Il est constitué des 3 chiffres inscrits au dos de votre carte</small>
+    </div>
+
     <input type="hidden" name="trajetId" value="@Model.Trajet.Id" />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Valider la réservation" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour", "Index")
 </div>
 
 @section Scripts {

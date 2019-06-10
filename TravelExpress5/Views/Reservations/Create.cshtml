@@ -1,0 +1,49 @@
+﻿@model TravelExpress5.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h4>Reservation du trajet de @Model.Trajet.VilleDepart à @Model.Trajet.VilleArrivee le @Model.Trajet.DateDepart</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.NbPlaces, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @{List<SelectListItem> Nombres = new List<SelectListItem>();
+                for (int i = 1; i <= Model.Trajet.NbPlacesLibres(); i++)
+                {
+                    Nombres.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString() });
+                }
+                SelectList lstProvinces = new SelectList(Nombres);
+            }
+
+            @Html.DropDownListFor(model => model.NbPlaces, Nombres)
+            @Html.ValidationMessageFor(model => model.NbPlaces, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <input type="hidden" name="trajetId" value="@Model.Trajet.Id" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

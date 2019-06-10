@@ -1,0 +1,57 @@
+﻿@model TravelExpress5.Models.Trajet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trajet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDepart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbPlacesMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbPlacesMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VilleDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VilleDepart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VilleArrivee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VilleArrivee)
+        </dd>
+
+    </dl>
+</div>
+@if (Model.Conducteur.Email.Equals(User.Identity.Name) == false && User.Identity.IsAuthenticated == true)
+{
+    <div>
+        @Html.ActionLink("Réserver une place", "Create", "Reservations", new { id = Model.Id },null)
+    </div>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

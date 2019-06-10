@@ -1,0 +1,57 @@
+﻿@model TravelExpress5.Models.Trajet
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Trajet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDepart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbPlacesMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbPlacesMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VilleDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VilleDepart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VilleArrivee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VilleArrivee)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

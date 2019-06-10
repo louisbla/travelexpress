@@ -18,6 +18,11 @@ namespace TravelExpress5.Controllers
         // GET: Trajets
         public ActionResult Index()
         {
+            string depart = Request["depart"];
+            string arrivee = Request["arrivee"];
+            string date = Request["date"];
+            
+
             List<Trajet> trajets = db.Trajets.ToList();
 
             List<Trajet> trajetsDispo = new List<Trajet>();
@@ -27,7 +32,24 @@ namespace TravelExpress5.Controllers
                 if (trajet.NbPlacesLibres() != 0)
                     trajetsDispo.Add(trajet);
             }
-            
+            if (depart!= null)
+            if (!depart.Equals("")) {
+                trajetsDispo = trajetsDispo.Where(t => t.VilleDepart.Equals(depart)).ToList();
+                    }
+            if (arrivee != null)
+                if (!arrivee.Equals(""))
+            {
+                trajetsDispo = trajetsDispo.Where(t => t.VilleArrivee.Equals(arrivee)).ToList();
+            }
+            if (date != null)
+                if (!date.Equals(""))
+                {
+                    string[] time = date.Split('-');
+                    trajetsDispo = trajetsDispo.Where(t => t.DateDepart.Year.ToString().Equals(time[0]))
+                        .Where(t => t.DateDepart.Month ==  Convert.ToInt32(time[1]))
+                        .Where(t => t.DateDepart.Day == Convert.ToInt32(time[2]))
+                        .ToList();
+                }
 
             return View(trajetsDispo);
         }

@@ -10,6 +10,34 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div>
+    @using (@Html.BeginForm("Index"))
+    {
+        <div class="form-group">
+            <label class="control-label col-md-1">Départ : </label>
+            <div class="col-md-2">
+                <input type="text" name="depart" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-1">Arrivée : </label>
+            <div class="col-md-2">
+                <input type="text" name="arrivee" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-1">Date : </label>
+            <div class="col-md-3">
+                <input type="date" name="date" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-1">
+                <input type="submit" value="Rechercher" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
 <table class="table">
     <tr>
         <th>

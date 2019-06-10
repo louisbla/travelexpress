@@ -50,7 +50,7 @@ namespace TravelExpress5.Controllers
                         .Where(t => t.DateDepart.Day == Convert.ToInt32(time[2]))
                         .ToList();
                 }
-
+            
             return View(trajetsDispo);
         }
 

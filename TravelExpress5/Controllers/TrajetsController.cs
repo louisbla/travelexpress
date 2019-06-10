@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,7 +18,18 @@ namespace TravelExpress5.Controllers
         // GET: Trajets
         public ActionResult Index()
         {
-            return View(db.Trajets.ToList());
+            List<Trajet> trajets = db.Trajets.ToList();
+
+            List<Trajet> trajetsDispo = new List<Trajet>();
+
+            foreach (Trajet trajet in trajets)
+            {
+                if (trajet.NbPlacesLibres() != 0)
+                    trajetsDispo.Add(trajet);
+            }
+            
+
+            return View(trajetsDispo);
         }
 
         // GET: Trajets/Details/5

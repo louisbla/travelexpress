@@ -16,9 +16,9 @@ namespace TravelExpress5.Models
         public DateTime DateDepart { get; set; }
         [Display(Name = "Nombre de places total")]
         public int NbPlacesMax { get; set; }
-        [Display(Name = "Départ")]
+        [Display(Name = "Ville de départ")]
         public string VilleDepart { get; set; }
-        [Display(Name = "Arrivée")]
+        [Display(Name = "Ville d'arrivée")]
         public string VilleArrivee { get; set; }
         virtual public ICollection<Reservation> Passagers { get; set; }
         virtual public ApplicationUser Conducteur { get; set; }

@@ -34,25 +34,25 @@ namespace TravelExpress5.Controllers
             }
             return View(reservation);
         }
-        /*
-        // GET: Reservations/Create
-        public ActionResult Create()
-        {
-            return View();
-        }*/
 
         // GET: Reservations/Create/5
         public ActionResult Create(int id)
         {
-            Trajet trajet = db.Trajets.Find(id);
+            if (User.Identity.IsAuthenticated)
+            {
+                Trajet trajet = db.Trajets.Find(id);
+                ICollection<Reservation> reservations = db.Reservations.Where(a => a.Trajet.Id == id).ToList();
+                trajet.Passagers = reservations;
 
-            ICollection<Reservation> reservations = db.Reservations.Where(a => a.Trajet.Id == id).ToList();
-            trajet.Passagers = reservations;
+                Reservation newReservation = new Reservation();
+                newReservation.Trajet = trajet;
 
-            Reservation newReservation = new Reservation();
-            newReservation.Trajet = trajet;
-            
-            return View(newReservation);
+                return View(newReservation);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         // POST: Reservations/Create

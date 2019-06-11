@@ -72,24 +72,36 @@ namespace TravelExpress5.Controllers
         // GET: Trajets/Create
         public ActionResult Create()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+                return View();
+            else
+                return RedirectToAction("Login", "Account");
         }
 
         // GET: Trajets/MyReservations
         public ActionResult MyReservations()
         {
-            IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
+            if (User.Identity.IsAuthenticated)
+            {
 
-            return View(reservations);
+                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
+
+                return View(reservations);
+            }
+            else
+                return RedirectToAction("Login", "Account");
         }
 
         // GET: Trajets/MesTrajets
         public ActionResult MesTrajets()
         {
-            IEnumerable<Trajet> trajets = db.Trajets.Where(t => t.Conducteur.Email.Equals(User.Identity.Name));
-
-            return View(trajets);
-        }
+            if (User.Identity.IsAuthenticated) {
+                IEnumerable<Trajet> trajets = db.Trajets.Where(t => t.Conducteur.Email.Equals(User.Identity.Name));
+                return View(trajets);
+            }
+            else
+                return RedirectToAction("Login", "Account");
+    }
 
         // POST: Trajets/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
@@ -98,6 +110,8 @@ namespace TravelExpress5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,DateDepart,NbPlacesMax,VilleDepart,VilleArrivee")] Trajet trajet)
         {
+            if (User.Identity.IsAuthenticated)
+            {
             string time = Request["HeureDepart"];
             int hours = Convert.ToInt32(time.Split(':')[0]);
             int minutes = Convert.ToInt32(time.Split(':')[1]);
@@ -117,6 +131,9 @@ namespace TravelExpress5.Controllers
             }
 
             return View(trajet);
+            }
+            else
+                return RedirectToAction("Login", "Account");
         }
 
         // GET: Trajets/Edit/5

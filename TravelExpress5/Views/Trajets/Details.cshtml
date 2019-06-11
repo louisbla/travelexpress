@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Détails du trajet</h2>
 
 <div>
-    <h4>Trajet</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -45,13 +45,16 @@
 
     </dl>
 </div>
+
+
 @if (Model.Conducteur.Email.Equals(User.Identity.Name) == false && User.Identity.IsAuthenticated == true)
 {
     <div>
-        @Html.ActionLink("Réserver une place", "Create", "Reservations", new { id = Model.Id },null)
+        @Html.ActionLink("Réserver une place", "Create", "Reservations", new { id = Model.Id }, null)
     </div>
 }
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<br />
+    <p>
+        <a href="/Trajets/MesTrajets" class="btn btn-default">Retour</a>
+    </p>

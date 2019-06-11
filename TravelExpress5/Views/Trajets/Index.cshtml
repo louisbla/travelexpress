@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Trouvez le trajet dont vous avez besoin !</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<br />
+<h4>Faire une recherche</h4>
 <div>
     @using (@Html.BeginForm("Index"))
     {
@@ -38,49 +37,59 @@
         </div>
     }
 </div>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DateDepart)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NbPlacesMax)
-        </th>
-        <th>
-            Places restantes
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VilleDepart)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VilleArrivee)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateDepart)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NbPlacesMax)
-        </td>
-        <td>
-            @item.NbPlacesLibres()
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VilleDepart)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VilleArrivee)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+<br />
+<br />
+<br />
 
-</table>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbPlacesMax)
+            </th>
+            <th>
+                Places restantes
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleArrivee)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDepart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NbPlacesMax)
+                </td>
+                <td>
+                    @item.NbPlacesLibres()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VilleDepart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VilleArrivee)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div class="form-actions no-color">
+    <a href="Trajets/Index" class="btn btn-default">Retour à tous les trajets</a>
+</div>

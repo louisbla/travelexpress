@@ -14,11 +14,37 @@ namespace TravelExpress5.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Reservations
         public ActionResult Index()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
+
+                return View(reservations);
+            }
+            else
+                return RedirectToAction("Login", "Account");
+        }
+        // GET: Reservations
+        /*public ActionResult Index()
         {
             return View(db.Reservations.ToList());
         }
+
+        // GET: Trajets/MyReservations
+        public ActionResult MyReservations()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+
+                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
+
+                return View(reservations);
+            }
+            else
+                return RedirectToAction("Login", "Account");
+        }*/
 
         // GET: Reservations/Details/5
         public ActionResult Details(int? id)

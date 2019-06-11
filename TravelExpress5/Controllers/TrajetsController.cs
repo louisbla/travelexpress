@@ -78,19 +78,6 @@ namespace TravelExpress5.Controllers
                 return RedirectToAction("Login", "Account");
         }
 
-        // GET: Trajets/MyReservations
-        public ActionResult MyReservations()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-
-                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
-
-                return View(reservations);
-            }
-            else
-                return RedirectToAction("Login", "Account");
-        }
 
         // GET: Trajets/MesTrajets
         public ActionResult MesTrajets()

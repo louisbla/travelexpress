@@ -13,6 +13,18 @@
         <th>
             @Html.DisplayNameFor(model => model.NbPlaces)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trajet.Conducteur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trajet.DateDepart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trajet.VilleDepart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trajet.VilleArrivee)
+        </th>
         <th></th>
     </tr>
 
@@ -20,6 +32,18 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.NbPlaces)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trajet.Conducteur.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trajet.DateDepart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trajet.VilleDepart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trajet.VilleArrivee)
         </td>
         <td>
             @Html.ActionLink("Détails", "Details", new { id = item.Id }) |

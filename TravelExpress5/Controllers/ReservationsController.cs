@@ -19,7 +19,7 @@ namespace TravelExpress5.Controllers
             if (User.Identity.IsAuthenticated)
             {
 
-                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name));
+                IEnumerable<Reservation> reservations = db.Reservations.Where(r => r.Passager.Email.Equals(User.Identity.Name)).Include(r => r.Trajet).Include(r => r.Trajet.Conducteur);
 
                 return View(reservations);
             }

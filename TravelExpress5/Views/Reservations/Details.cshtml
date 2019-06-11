@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Détails</h2>
 
 <div>
-    <h4>Reservation</h4>
+    <h4>Réservation @Model.Trajet.VilleDepart - @Model.Trajet.VilleArrivee le @Model.Trajet.DateDepart</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,8 +20,8 @@
         </dd>
 
     </dl>
+    <hr />
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour", "Index")
 </p>

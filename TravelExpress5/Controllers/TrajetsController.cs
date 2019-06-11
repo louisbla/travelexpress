@@ -98,8 +98,18 @@ namespace TravelExpress5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,DateDepart,NbPlacesMax,VilleDepart,VilleArrivee")] Trajet trajet)
         {
+            string time = Request["HeureDepart"];
+            int hours = Convert.ToInt32(time.Split(':')[0]);
+            int minutes = Convert.ToInt32(time.Split(':')[1]);
+
+            
+
             if (ModelState.IsValid)
             {
+                Console.WriteLine("depart : " + trajet.DateDepart);
+                DateTime dateHeure = new DateTime(trajet.DateDepart.Year, trajet.DateDepart.Month, trajet.DateDepart.Day, hours, minutes, 0);
+
+                trajet.DateDepart = dateHeure;
                 trajet.Conducteur = db.Users.Where(a => a.Email.Equals(User.Identity.Name)).First();
                 db.Trajets.Add(trajet);
                 db.SaveChanges();

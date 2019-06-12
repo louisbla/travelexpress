@@ -64,16 +64,12 @@
                 @Html.DisplayNameFor(model => model.VilleArrivee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefFumeur)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefAnimaux)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefDiscussion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefMusique)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Prix)
@@ -103,16 +99,35 @@
                 @Html.DisplayFor(modelItem => item.VilleArrivee)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefFumeur)
+                @if (item.Conducteur.Preferences.PrefFumeur)
+                {
+                    <img src="~/Content/Icones_Preferences/Fumeur.PNG" style="width: 30px;"/>
+                }
+                else { <img src="~/Content/Icones_Preferences/No_Fumeur.PNG" style="width: 30px;" />}
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefAnimaux)
+                @if (item.Conducteur.Preferences.PrefAnimaux)
+                {
+                    <img src="~/Content/Icones_Preferences/Animaux.PNG" style="width: 30px;" />
+                }
+                else
+                { <img src="~/Content/Icones_Preferences/No_Animaux.PNG" style="width: 30px;" />}
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefDiscussion)
+                @if (item.Conducteur.Preferences.PrefDiscussion)
+                {
+                    <img src="~/Content/Icones_Preferences/Discussion.PNG" style="width: 30px;" />
+                }
+                else
+                { <img src="~/Content/Icones_Preferences/No_Discussion.PNG" style="width: 30px;" />}
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefMusique)
+                @if (item.Conducteur.Preferences.PrefMusique)
+                {
+                    <img src="~/Content/Icones_Preferences/Musique.PNG" style="width: 30px;" />
+                }
+                else
+                { <img src="~/Content/Icones_Preferences/No_Musique.PNG" style="width: 30px;" />}
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Prix)$

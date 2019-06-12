@@ -217,14 +217,30 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Icones_Preferences\Animaux.PNG" />
-    <Content Include="Content\Icones_Preferences\Discussion.PNG" />
-    <Content Include="Content\Icones_Preferences\Fumeur.PNG" />
-    <Content Include="Content\Icones_Preferences\Musique.PNG" />
-    <Content Include="Content\Icones_Preferences\No_Animaux.PNG" />
-    <Content Include="Content\Icones_Preferences\No_Discussion.PNG" />
-    <Content Include="Content\Icones_Preferences\No_Fumeur.PNG" />
-    <Content Include="Content\Icones_Preferences\No_Musique.PNG" />
+    <Content Include="Content\Icones_Preferences\Animaux.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\Discussion.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\Fumeur.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\Musique.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\No_Animaux.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\No_Discussion.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\No_Fumeur.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Icones_Preferences\No_Musique.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

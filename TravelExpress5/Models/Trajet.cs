@@ -11,7 +11,7 @@ namespace TravelExpress5.Models
         public int Id { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss}")]
         [Display(Name = "Date de départ")]
         public DateTime DateDepart { get; set; }
         [Display(Name = "Nombre de places total")]

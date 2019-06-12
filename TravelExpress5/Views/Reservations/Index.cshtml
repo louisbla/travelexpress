@@ -17,6 +17,9 @@
             @Html.DisplayNameFor(model => model.Trajet.Conducteur)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Trajet.Conducteur.Tel)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Trajet.DateDepart)
         </th>
         <th>
@@ -35,6 +38,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Trajet.Conducteur.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trajet.Conducteur.Tel)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Trajet.DateDepart)

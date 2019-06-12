@@ -49,6 +49,9 @@
                 @Html.DisplayNameFor(model => model.DateDepart)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Conducteur.Prenom)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NbPlacesMax)
             </th>
             <th>
@@ -65,26 +68,29 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateDepart)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NbPlacesMax)
-                </td>
-                <td>
-                    @item.NbPlacesLibres()
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VilleDepart)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VilleArrivee)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducteur.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbPlacesMax)
+            </td>
+            <td>
+                @item.NbPlacesLibres()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleArrivee)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </td>
+        </tr>
         }
 
     </table>

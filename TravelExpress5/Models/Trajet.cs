@@ -20,6 +20,8 @@ namespace TravelExpress5.Models
         public string VilleDepart { get; set; }
         [Display(Name = "Ville d'arrivée")]
         public string VilleArrivee { get; set; }
+        [Display(Name = "Prix")]
+        public double Prix { get; set; }
         virtual public ICollection<Reservation> Passagers { get; set; }
         virtual public ApplicationUser Conducteur { get; set; }
 

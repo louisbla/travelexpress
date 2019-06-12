@@ -1,0 +1,43 @@
+﻿@model TravelExpress5.Models.IndexViewModel
+
+<div>
+    <h4>Mes préférences</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferences.PrefFumeur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preferences.PrefFumeur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferences.PrefAnimaux)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preferences.PrefAnimaux)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferences.PrefDiscussion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preferences.PrefDiscussion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferences.PrefMusique)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preferences.PrefMusique)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier mes préférences", "Edit", "Preferences", new { id = Model.Preferences.Id }, null) 
+</p>

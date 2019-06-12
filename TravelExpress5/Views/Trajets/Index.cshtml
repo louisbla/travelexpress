@@ -63,6 +63,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.VilleArrivee)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefFumeur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefAnimaux)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefDiscussion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conducteur.Preferences.PrefMusique)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
             <th></th>
         </tr>
 
@@ -86,6 +101,21 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VilleArrivee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefFumeur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefAnimaux)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefDiscussion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducteur.Preferences.PrefMusique)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prix)$
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.Id })

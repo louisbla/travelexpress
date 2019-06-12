@@ -152,7 +152,8 @@ namespace TravelExpress5.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email,
-                    Prenom = model.Prenom, Nom = model.Nom, DateNaissance = model.DateNaissance, Tel = model.Tel};
+                    Prenom = model.Prenom, Nom = model.Nom, DateNaissance = model.DateNaissance, Tel = model.Tel,
+                    Preferences = new Preferences()};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

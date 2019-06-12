@@ -24,6 +24,7 @@ namespace TravelExpress5.Models
         public DateTime DateNaissance { get; set; }
         public string Tel { get; set; }
         public virtual List<Trajet> Trajets { get; set; }
+        public virtual Preferences Preferences { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -41,5 +42,7 @@ namespace TravelExpress5.Models
         public System.Data.Entity.DbSet<TravelExpress5.Models.Trajet> Trajets { get; set; }
 
         public System.Data.Entity.DbSet<TravelExpress5.Models.Reservation> Reservations { get; set; }
+
+        public System.Data.Entity.DbSet<TravelExpress5.Models.Preferences> Preferences { get; set; }
     }
 }

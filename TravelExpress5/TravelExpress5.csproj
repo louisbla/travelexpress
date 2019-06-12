@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PreferencesController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\TrajetsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,10 +194,19 @@
     <Compile Include="Migrations\201906100003383_firstMigration2.Designer.cs">
       <DependentUpon>201906100003383_firstMigration2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906121809223_firstMigration3.cs" />
+    <Compile Include="Migrations\201906121809223_firstMigration3.Designer.cs">
+      <DependentUpon>201906121809223_firstMigration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906121917225_firstMigration4.cs" />
+    <Compile Include="Migrations\201906121917225_firstMigration4.Designer.cs">
+      <DependentUpon>201906121917225_firstMigration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Preferences.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Trajet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,6 +281,8 @@
     <Content Include="Views\Reservations\Edit.cshtml" />
     <Content Include="Views\Reservations\Index.cshtml" />
     <Content Include="Views\Trajets\MesTrajets.cshtml" />
+    <Content Include="Views\Preferences\Edit.cshtml" />
+    <Content Include="Views\Preferences\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906100003383_firstMigration2.resx">
       <DependentUpon>201906100003383_firstMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121809223_firstMigration3.resx">
+      <DependentUpon>201906121809223_firstMigration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121917225_firstMigration4.resx">
+      <DependentUpon>201906121917225_firstMigration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
